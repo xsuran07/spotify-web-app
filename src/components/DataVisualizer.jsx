@@ -8,6 +8,9 @@
 
 import { useState, useEffect } from 'react';
 import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
+
+import { Artist } from './Artist';
 
 import { getArtistAndAlbums } from '../shared/api';
 
@@ -39,7 +42,14 @@ export const DataVisualizer = ({ token, artistID }) => {
   }, [token, artistID]);
 
   const content = (fetchResult.valid)?
-    <div>TODO visualizer</div> :
+    <Stack
+      style={{ width: '100%' }}
+      justifyContent='center'
+      alignItems='center'
+      spacing={2}
+    >
+      <Artist artist={artist} albums={albums} />
+    </Stack> :
     <Typography>Failed to fetch data!</Typography>
 
   return (
