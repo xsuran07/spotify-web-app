@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Spotify web app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project provides a simple web application that visualizes some of the data from Spotify web API. To be more precise, it displays information about three chosen artists and their albums. It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Build
 
-In the project directory, you can run:
+Recommended versions of node and npm:
+* node : >=16.0.0
+* npm : >=8.0.0
 
-### `npm start`
+All dependencies can be installed with:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`<project-root> $ npm install`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `npm test`
+The user application needs to authenticate before it can use the Spotify REST API. Without that, Spotify data cannot be accessed. The authentication (as well as authorization) process requires valid client credentials - a client ID and a client secret. You can get them with this [turorial](https://developer.spotify.com/documentation/general/guides/authorization/app-settings/). This project utilizes the [Client Credentials Flow](https://developer.spotify.com/documentation/general/guides/authorization/client-credentials/) to get the access token.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+For simplicity, this application extracts the client credentials from the environment variables. That is not a very suitable approach for production (secret data can be accessed from the build files). It would be better to perform the API calls with these credentials in the backend (e.g., node server). 
 
-### `npm run build`
+Before the application is utilized, your client credentials should be stored in the provided `.env` file template. The resulting `.env` file should be like this (values are made up):
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+REACT_APP_CLIENT_ID=45fsdfsdf56fsdfsdfsdfsdfsds4sc8c
+REACT_APP_CLIENT_SECRET=1234567894123456456jnj1234567890
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+After that, the application can be started with:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`<project-root> $ npm start`
 
-### `npm run eject`
+Alternatively, it is possible to use temporary envronment variables. In this case, application should be launched with:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`<project-root> $ REACT_APP_CLIENT_ID=<your client ID> REACT_APP_CLIENT_SECRET=<your client secret> npm start`
