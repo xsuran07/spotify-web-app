@@ -1,3 +1,10 @@
+/**
+ * @brief Main component of the whole application.
+ *
+ * @author Jakub Šuráň (xsuran07@stud.fit.vutbr.cz)
+ * @file App.js
+ */
+
 import { useState, useEffect } from 'react';
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
@@ -8,6 +15,9 @@ import { DataVisualizer } from './components/DataVisualizer';
 
 import { getToken } from "./shared/api";
 
+/**
+ * @brief Main component of the application.
+ */
 export default function App() {
   const [ artistID, setArtistID ] = useState(artistsList[0].id);
   const [ token, setToken ] = useState('');
