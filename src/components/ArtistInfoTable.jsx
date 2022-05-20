@@ -74,7 +74,7 @@ const ArtistProp = ({ prop }) => {
  * @param prop Array with properties to display.
  * @param image Artist's image url.
  */
-export const ArstistInfoTable = () => {
+export const ArtistInfoTable = () => {
   const { image, props } = useContext(ArtistContext);
 
   return (

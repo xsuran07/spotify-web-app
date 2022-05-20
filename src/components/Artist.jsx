@@ -8,7 +8,7 @@
 
 import { useState, useEffect, createContext } from 'react';
 
-import { ArstistInfoTable } from './ArtistInfoTable';
+import { ArtistInfoTable } from './ArtistInfoTable';
 
 /**
  * @brief Calculates three statistics (oldest, newest and
@@ -87,7 +87,7 @@ export const Artist = ({ artist, albums }) => {
     <ArtistContext.Provider
       value={{ header: 'Basic information about artist', props: artistProps, image:image }}
     >
-      <ArstistInfoTable />
+      <ArtistInfoTable />
     </ArtistContext.Provider>
   );
 }
