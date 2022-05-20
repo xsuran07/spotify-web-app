@@ -6,7 +6,7 @@
  * @file Artist.jsx
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 
 import { ArstistInfoTable } from './ArtistInfoTable';
 
@@ -46,6 +46,11 @@ const createProp = (propName, propValue) => {
 }
 
 /**
+ * @brief Context with data connected to particular artist.
+ */
+export const ArtistContext = createContext();
+
+/**
  * @brief Component which displays information and statistics about
  * particular artist.
  *
@@ -79,6 +84,10 @@ export const Artist = ({ artist, albums }) => {
   }, [artist, albums]);
 
   return (
-    <ArstistInfoTable header='Basic information about artist' props={artistProps} image={image} />
+    <ArtistContext.Provider
+      value={{ header: 'Basic information about artist', props: artistProps, image:image }}
+    >
+      <ArstistInfoTable />
+    </ArtistContext.Provider>
   );
 }

@@ -13,13 +13,18 @@ import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Paper from '@mui/material/Paper';
+import { useContext } from 'react';
+
+import { ArtistContext } from './Artist';
 
 /**
  * @brief Component which creates header of the table.
  *
  * @param header String to be used in header.
  */
-const ArtistTableHeader = ({ header }) => {
+const ArtistTableHeader = () => {
+  const { header } = useContext(ArtistContext);
+
   return (
     <TableRow>
       <TableCell  style={{height: 39 }} align='center' colSpan={2}>
@@ -34,7 +39,9 @@ const ArtistTableHeader = ({ header }) => {
  *
  * @param image Image url to display.
  */
-const ArtistImage = ({ image }) => {
+const ArtistImage = () => {
+  const { image } = useContext(ArtistContext);
+
   return (
     <TableRow>
       <TableCell align='center' colSpan={2}>
@@ -66,18 +73,19 @@ const ArtistProp = ({ prop }) => {
  * @param header String to be used in header.
  * @param prop Array with properties to display.
  * @param image Artist's image url.
- * @todo Current approach resemble prop drilling. Could be solved with useContext hook.
  */
-export const ArstistInfoTable = ({ header, props, image }) => {
+export const ArstistInfoTable = () => {
+  const { image, props } = useContext(ArtistContext);
+
   return (
     <TableContainer style={{ width: '100%', maxWidth: 650 }} component={Paper}>
       <Table size='small' aria-label='a dense table'>
         <TableHead>
-          <ArtistTableHeader header={header} />
+          <ArtistTableHeader />
         </TableHead>
         <TableBody>
           {image &&
-            <ArtistImage image={image} />}
+            <ArtistImage />}
           {props.map((prop, i) => (
             <ArtistProp key={i} prop={prop} />
           ))}
