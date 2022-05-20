@@ -70,7 +70,7 @@ const ArtistProp = ({ prop }) => {
  */
 export const ArstistInfoTable = ({ header, props, image }) => {
   return (
-    <TableContainer style={{ width: '100%', maxWidth: 600 }} component={Paper}>
+    <TableContainer style={{ width: '100%', maxWidth: 650 }} component={Paper}>
       <Table size='small' aria-label='a dense table'>
         <TableHead>
           <ArtistTableHeader header={header} />
