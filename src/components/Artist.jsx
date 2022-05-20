@@ -67,7 +67,7 @@ export const Artist = ({ artist, albums }) => {
     let newProps = [
       createProp('Name', artist.name),
       createProp('Followers on spotify', artist.followers.total),
-      createProp('Genres', artist.genres.join(', ')),
+      createProp('Genres', artist.genres.slice(0, 6).join(', ')),
       createProp('Oldest album', minimum),
       createProp('Newest album', maximum),
       createProp('Tracks in album by average', average.toFixed(2)),

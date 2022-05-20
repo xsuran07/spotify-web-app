@@ -61,6 +61,21 @@ const getClientCredentials = () => {
 }
 
 /**
+ * @brief Tries to strip unnecessary characters from long strins. Short strings
+ * are left unmodified.
+ *
+ * @param str String to be stripped.
+ * @returns Stripped string.
+ */
+const stripLongStr = (str) => {
+  if(str.length > 45) {
+    return str.replace(/(\[.*\])|(\(.*\))/g, '');
+  }
+
+  return str;
+}
+
+/**
  * @brief Process each album from given list. As a result,
  * each object contains only relevant data.
  *
@@ -72,7 +87,7 @@ const processAlbums = (arr) => {
     {
       id: obj.id,
       image: obj.images[obj.images.length - 1].url,
-      name: obj.name,
+      name: stripLongStr(obj.name),
       date: obj.release_date,
       tracks: obj.total_tracks
     }));
