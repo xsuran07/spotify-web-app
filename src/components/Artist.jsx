@@ -8,6 +8,8 @@
 
 import { useState, useEffect } from 'react';
 
+import { ArstistInfoTable } from './ArtistInfoTable';
+
 /**
  * @brief Calculates three statistics (oldest, newest and
  * average number of tracks) from array with albums.
@@ -77,6 +79,6 @@ export const Artist = ({ artist, albums }) => {
   }, [artist, albums]);
 
   return (
-    <div>Artist TODO</div>
+    <ArstistInfoTable header='Basic information about artist' props={artistProps} image={image} />
   );
 }
