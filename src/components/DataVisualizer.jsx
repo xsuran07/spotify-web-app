@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 
 import { Artist } from './Artist';
+import { Albums } from './Albums';
 
 import { getArtistAndAlbums } from '../shared/api';
 
@@ -47,8 +48,10 @@ export const DataVisualizer = ({ token, artistID }) => {
       justifyContent='center'
       alignItems='center'
       spacing={2}
+      direction={{ xs: 'column', md: 'column', lg: 'row' }}
     >
       <Artist artist={artist} albums={albums} />
+      <Albums albums={albums} />
     </Stack> :
     <Typography>Failed to fetch data!</Typography>
 
