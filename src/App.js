@@ -4,6 +4,7 @@ import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 
 import { SelectArtist, artistsList } from './components/SelectArtist';
+import { DataVisualizer } from './components/DataVisualizer';
 
 import { getToken } from "./shared/api";
 
@@ -15,7 +16,7 @@ export default function App() {
   useEffect(() =>{
     const fetchToken = () => {
       setFetchResult(prev => {
-         return { ...prev, loading: true }});
+        return { ...prev, loading: true }});
       getToken(setToken, setFetchResult);
     }
 
@@ -27,7 +28,7 @@ export default function App() {
   }, []);
 
   const mainConent = (fetchResult.valid) ?
-    <div>TODO</div> :
+    <DataVisualizer token={token} artistID={artistID} /> :
     <Typography>Failed to get access token!</Typography>;
 
   return (
